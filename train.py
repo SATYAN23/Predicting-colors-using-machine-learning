@@ -14,14 +14,14 @@ encoder.fit(dataset['label'])
 Y = encoder.transform(dataset['label'])
 X=dataset.iloc[:, 0:3].values
 
-trainX,testX,trainY,testY=train_test_split(X,Y,test_size=0.3,random_state = 42)
+trainX,testX,trainY,testY=train_test_split(X,Y,test_size=0.3,random_state = 32)
 
 trainX=np.array(trainX)
 trainY=np.array(trainY).astype('int64')
 testX=np.array(testX)
 
 
-model = linear_model.LogisticRegression(class_weight="balanced")
+model = linear_model.LogisticRegression(class_weight="balanced", random_state = 32)
 model.fit(trainX,trainY)
 
 z=model.predict([[127,67,254]])
