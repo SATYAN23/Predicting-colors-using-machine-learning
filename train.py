@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-from sklearn import linear_model
+from sklearn.neighbors import KNeighborsClassifier
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -21,7 +21,7 @@ trainY=np.array(trainY).astype('int64')
 testX=np.array(testX)
 
 
-model = linear_model.LogisticRegression(class_weight="balanced", random_state = 32)
+model = KNeighborsClassifier()
 model.fit(trainX,trainY)
 
 z=model.predict([[127,67,254]])
